@@ -1,3 +1,4 @@
+import CategoriesSection from "./components/CategoriesSection";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -114,14 +115,7 @@ export default function Home() {
   ];
 
   // Categorias de memes
-  const categories = [
-    { id: 1, name: "Programação", icon: "💻", count: 478 },
-    { id: 2, name: "Escola", icon: "📚", count: 325 },
-    { id: 3, name: "Trabalho", icon: "💼", count: 642 },
-    { id: 4, name: "Games", icon: "🎮", count: 513 },
-    { id: 5, name: "Relacionamentos", icon: "❤️", count: 287 },
-    { id: 6, name: "Esportes", icon: "⚽", count: 195 },
-  ];
+  
 
   // Memes em destaque
   const featuredMemes = [
@@ -169,13 +163,9 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* COMPONENTE: Header */}
      <Header/>
-      {/* FIM COMPONENTE: Header */}
-
       <div className={styles.mainContent}>
         <div className={styles.contentArea}>
-          {/* COMPONENTE: HeroSection */}
           <HeroSection 
             title={memeOfTheDay.title}
             description={memeOfTheDay.description}
@@ -185,25 +175,16 @@ export default function Home() {
             author={memeOfTheDay.author}
             authorAvatar={memeOfTheDay.authorAvatar}
           />
-          {/* FIM COMPONENTE: HeroSection */}
-
-          {/* COMPONENTE: CategoriesSection */}
-          <section className={styles.categoriesSection}>
-            <h2 className={styles.sectionTitle}>Explore por Categorias</h2>
-            <div className={styles.categoriesGrid}>
-              {categories.map((category) => (
-                <div key={category.id} className={styles.categoryCard}>
-                  <span className={styles.categoryIcon}>{category.icon}</span>
-                  <h3 className={styles.categoryName}>{category.name}</h3>
-                  <span className={styles.categoryCount}>
-                    {category.count} memes
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-          {/* FIM COMPONENTE: CategoriesSection */}
-
+          <CategoriesSection
+            categories={[
+              { id: 1, name: "Programação", icon: "💻", count: 478 },
+              { id: 2, name: "Escola", icon: "📚", count: 325 },
+              { id: 3, name: "Trabalho", icon: "💼", count: 642 },
+              { id: 4, name: "Games", icon: "🎮", count: 513 },
+              { id: 5, name: "Relacionamentos", icon: "❤️", count: 287 },
+              { id: 6, name: "Esportes", icon: "⚽", count: 195 },
+            ]}
+          />
           {/* COMPONENTE: Feed */}
           <section className={styles.feedSection}>
             <div className={styles.feedHeader}>
