@@ -1,7 +1,10 @@
 import CategoriesSection from "./components/CategoriesSection";
+import FeaturedMemes from "./components/featuredMemes";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import InteractionBar from "./components/interactionBar";
+import Newsletter from "./components/Newsletter";
 import Sidebar from "./components/Sidebar";
 import styles from "./page.module.css";
 
@@ -119,32 +122,7 @@ export default function Home() {
   
 
   // Memes em destaque
-  const featuredMemes = [
-    {
-      id: 8,
-      title: "O código em produção",
-      image: "https://i.imgur.com/aVy8tFB.jpg",
-      author: "DevHumor",
-      category: "Programação",
-      trending: true,
-    },
-    {
-      id: 9,
-      title: "Modo escuro vs Modo claro",
-      image: "https://i.imgur.com/YnGsVzS.jpg",
-      author: "UIDesigner",
-      category: "Tecnologia",
-      trending: true,
-    },
-    {
-      id: 10,
-      title: "POV: Aula online",
-      image: "https://i.imgur.com/4MigGYQ.jpg",
-      author: "ZoomExpert",
-      category: "Escola",
-      trending: false,
-    },
-  ];
+ 
 
   // Eventos próximos
  
@@ -208,24 +186,7 @@ export default function Home() {
                     <p className={styles.memeDescription}>{meme.description}</p>
 
                     {/* COMPONENTE: InteractionBar */}
-                    <div className={styles.interactionBar}>
-                      <div className={styles.interactionButton}>
-                        <span>👍</span>
-                        <span>{meme.likes}</span>
-                      </div>
-                      <div className={styles.interactionButton}>
-                        <span>💬</span>
-                        <span>{meme.comments}</span>
-                      </div>
-                      <div className={styles.interactionButton}>
-                        <span>🔄</span>
-                        <span>Share</span>
-                      </div>
-                      <div className={styles.interactionButton}>
-                        <span>🔖</span>
-                        <span>Save</span>
-                      </div>
-                    </div>
+                  <InteractionBar meme={meme} />
                     {/* FIM COMPONENTE: InteractionBar */}
                   </div>
                 </div>
@@ -240,38 +201,7 @@ export default function Home() {
           {/* FIM COMPONENTE: Feed */}
 
           {/* COMPONENTE: FeaturedMemesSection */}
-          <section className={styles.featuredSection}>
-            <h2 className={styles.sectionTitle}>Memes em Destaque</h2>
-            <div className={styles.featuredGrid}>
-              {featuredMemes.map((meme) => (
-                // COMPONENTE: FeaturedMemeCard
-                <div key={meme.id} className={styles.featuredCard}>
-                  <div className={styles.featuredImageContainer}>
-                    <img
-                      src={meme.image}
-                      alt={meme.title}
-                      className={styles.featuredImage}
-                    />
-                    {meme.trending && (
-                      <span className={styles.trendingBadge}>🔥 Trending</span>
-                    )}
-                  </div>
-                  <div className={styles.featuredContent}>
-                    <h3 className={styles.featuredTitle}>{meme.title}</h3>
-                    <div className={styles.featuredInfo}>
-                      <span className={styles.featuredAuthor}>
-                        Por {meme.author}
-                      </span>
-                      <span className={styles.featuredCategory}>
-                        {meme.category}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                // FIM COMPONENTE: FeaturedMemeCard
-              ))}
-            </div>
-          </section>
+          <FeaturedMemes />
           {/* FIM COMPONENTE: FeaturedMemesSection */}
 
           {/* COMPONENTE: CreatorsSection */}
@@ -302,32 +232,7 @@ export default function Home() {
           {/* FIM COMPONENTE: CreatorsSection */}
 
           {/* COMPONENTE: NewsletterSection */}
-          <section className={styles.newsletterSection}>
-            <div className={styles.newsletterContent}>
-              <h2 className={styles.newsletterTitle}>Fique por dentro!</h2>
-              <p className={styles.newsletterDescription}>
-                Assine nossa newsletter e receba os melhores memes toda semana!
-              </p>
-              <div className={styles.newsletterForm}>
-                <input
-                  type="email"
-                  placeholder="Seu melhor e-mail"
-                  className={styles.newsletterInput}
-                />
-                <button className={styles.newsletterButton}>Assinar</button>
-              </div>
-              <p className={styles.newsletterDisclaimer}>
-                Nós respeitamos sua privacidade. Cancele quando quiser.
-              </p>
-            </div>
-            <div className={styles.newsletterImageContainer}>
-              <img
-                src="https://i.imgur.com/OELrGl5.jpg"
-                alt="Newsletter"
-                className={styles.newsletterImage}
-              />
-            </div>
-          </section>
+          <Newsletter />
           {/* FIM COMPONENTE: NewsletterSection */}
         </div>
 
