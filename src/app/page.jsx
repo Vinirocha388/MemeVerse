@@ -1,5 +1,7 @@
 import CategoriesSection from "./components/CategoriesSection";
+import Creator from "./components/Creator";
 import FeaturedMemes from "./components/featuredMemes";
+import Feed from "./components/Feed";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -93,40 +95,6 @@ export default function Home() {
     authorAvatar: "https://i.pravatar.cc/150?img=20",
   };
 
-  // Array de criadores em destaque
-  const topCreators = [
-    {
-      id: 1,
-      name: "MemeQueen",
-      avatar: "https://i.pravatar.cc/150?img=23",
-      followers: "245K",
-      bio: "Criando memes que fazem seu dia melhor!",
-    },
-    {
-      id: 2,
-      name: "FunnyGuy42",
-      avatar: "https://i.pravatar.cc/150?img=24",
-      followers: "189K",
-      bio: "Especialista em memes de programação e gatos",
-    },
-    {
-      id: 3,
-      name: "LaughFactory",
-      avatar: "https://i.pravatar.cc/150?img=25",
-      followers: "327K",
-      bio: "Se não te fizer rir, devolvo seu tempo!",
-    },
-  ];
-
-  // Categorias de memes
-  
-
-  // Memes em destaque
- 
-
-  // Eventos próximos
- 
-
   return (
     <div className={styles.container}>
      <Header/>
@@ -199,51 +167,13 @@ export default function Home() {
             </button>
           </section>
           {/* FIM COMPONENTE: Feed */}
-
-          {/* COMPONENTE: FeaturedMemesSection */}
           <FeaturedMemes />
-          {/* FIM COMPONENTE: FeaturedMemesSection */}
-
-          {/* COMPONENTE: CreatorsSection */}
-          <section className={styles.creatorsSection}>
-            <h2 className={styles.sectionTitle}>Criadores em Destaque</h2>
-            <div className={styles.creatorsGrid}>
-              {topCreators.map((creator) => (
-                // COMPONENTE: CreatorCard
-                <div key={creator.id} className={styles.creatorCard}>
-                  <img
-                    src={creator.avatar}
-                    alt={creator.name}
-                    className={styles.creatorAvatar}
-                  />
-                  <h3 className={styles.creatorName}>{creator.name}</h3>
-                  <p className={styles.creatorBio}>{creator.bio}</p>
-                  <div className={styles.creatorStats}>
-                    <span className={styles.creatorFollowers}>
-                      {creator.followers} seguidores
-                    </span>
-                  </div>
-                  <button className={styles.followButton}>Seguir</button>
-                </div>
-                // FIM COMPONENTE: CreatorCard
-              ))}
-            </div>
-          </section>
-          {/* FIM COMPONENTE: CreatorsSection */}
-
-          {/* COMPONENTE: NewsletterSection */}
+          <Creator />
           <Newsletter />
-          {/* FIM COMPONENTE: NewsletterSection */}
         </div>
-
-        {/* COMPONENTE: Sidebar */}
         <Sidebar />
-        {/* FIM COMPONENTE: Sidebar */}
       </div>
-
-      {/* COMPONENTE: Footer */}
       <Footer/>
-      
     </div>
   );
 }
